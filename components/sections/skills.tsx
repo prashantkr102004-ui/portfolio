@@ -1,0 +1,4 @@
+import { skillGroups } from "@/data/skills";
+export function Skills() {
+  return <section id="skills" className="skills-section" aria-labelledby="skills-title"><div className="section-heading"><div><span className="eyebrow mono">04 / TECHNICAL CAPABILITIES</span><h2 id="skills-title">Tools for the whole system.</h2></div><p>From the first data point<br />to the interface around it.</p></div><div className="skill-table">{skillGroups.map((group, index) => <div className="skill-row" key={group.title}><span className="skill-index mono">0{index + 1}</span><h3>{group.title}</h3><ul>{group.items.map(item => <li key={item}>{item}</li>)}</ul></div>)}</div></section>;
+}
