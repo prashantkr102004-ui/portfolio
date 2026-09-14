@@ -15,5 +15,5 @@ export const metadata: Metadata = {
   twitter: { card: "summary_large_image", title: "Prashant Kumar — AI/ML & Full-Stack Developer", description: profile.description },
 };
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="en"><body><a className="skip-link" href="#main-content">Skip to content</a><Navigation />{children}<Footer /></body></html>;
+  return <html lang="en" data-scroll-behavior="smooth"><body><a className="skip-link" href="#main-content">Skip to content</a><Navigation />{children}<Footer /></body></html>;
 }
