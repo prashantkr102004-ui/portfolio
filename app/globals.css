@@ -872,23 +872,44 @@ kbd {
 }
 .contact-bottom {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 24px;
   align-items: center;
   margin-top: 56px;
   padding-top: 24px;
   border-top: 1px solid var(--line);
 }
-.contact-email {
-  color: var(--text-soft);
-  font-size: 20px;
-}
-.contact-bottom > div {
+.contact-links {
   display: flex;
-  gap: 26px;
+  gap: 14px;
 }
-.contact-bottom a:hover { color: var(--accent); }
-.contact-bottom .arrow { width: 16px; height: 16px; }
+.contact-icon-link {
+  width: 48px;
+  height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--text-soft);
+  background: rgba(255, 255, 255, 0.015);
+  transition: border-color 180ms ease, color 180ms ease, background 180ms ease, transform 180ms ease;
+}
+.contact-icon-link:hover {
+  border-color: rgba(209, 167, 95, 0.5);
+  background: var(--accent-soft);
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+.contact-icon-link svg {
+  width: 21px;
+  height: 21px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
 
 .footer {
   width: min(100% - 48px, 1220px);
@@ -1348,13 +1369,9 @@ kbd {
   }
   .archive-project h3 { font-size: 24px; }
   .contact-inner { padding: 58px 0 34px; }
-  .contact-email {
-    font-size: 16px;
-    overflow-wrap: anywhere;
-  }
-  .contact-bottom > div {
+  .contact-links {
     flex-wrap: wrap;
-    gap: 18px;
+    gap: 12px;
   }
   .footer {
     flex-direction: column;
@@ -1398,7 +1415,7 @@ kbd {
     margin-left: -78px;
     margin-right: -78px;
   }
-  .contact-email { font-size: 14px; }
+  .contact-icon-link { width: 44px; height: 44px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
