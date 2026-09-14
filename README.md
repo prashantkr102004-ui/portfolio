@@ -15,9 +15,12 @@ The homepage is built around four main projects:
 - AI MarketGuard
 - RevenueRescue AI
 
-After those, the Work section has a larger “Explore more projects” button that takes visitors directly to my GitHub profile.
+After those, the Work section includes a small “Explore more projects” area for two additional experiments:
 
-Each featured project has its own static detail page with the problem, approach, technical notes, stack, and GitHub link. The copy avoids fake metrics, fake demos, and claims that are not backed by the actual projects.
+- Autonomous Self-Healing ML System
+- Decision Autopsy
+
+Each project has its own static detail page with the problem, approach, technical notes, stack, and GitHub link. The copy avoids fake metrics, fake demos, and claims that are not backed by the actual projects.
 
 ## Tech stack
 
