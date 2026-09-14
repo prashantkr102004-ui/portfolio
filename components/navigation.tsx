@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { navigation, profile } from "@/data/profile";
+import { navigation } from "@/data/profile";
 
 const trackedSections = [
   { id: "work", nav: "work" },
@@ -61,6 +61,6 @@ export function Navigation() {
       const isActive = section === activeSection;
       return <Link key={item.label} href={item.href} aria-current={isActive ? "location" : undefined} onClick={() => { setActiveSection(section); setMenuOpen(false); }}>{item.label}</Link>;
     })}</nav>
-    <div className="nav-actions"><a className="nav-github" href={profile.github} target="_blank" rel="noreferrer">GitHub</a><button className="menu-button" aria-expanded={menuOpen} aria-controls="main-navigation" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? "Close" : "Menu"}</button></div>
+    <div className="nav-actions"><button className="menu-button" aria-expanded={menuOpen} aria-controls="main-navigation" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? "Close" : "Menu"}</button></div>
   </div></header>;
 }

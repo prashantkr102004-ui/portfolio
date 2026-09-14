@@ -1,58 +1,101 @@
-# Prashant Kumar — Portfolio
+# Prashant Kumar Portfolio
 
-A responsive editorial portfolio built with Next.js App Router, TypeScript, and Tailwind CSS. Static server-rendered content leads with four featured projects, followed by experience, technical capabilities, two additional projects, activities, and contact links.
+This is my personal portfolio site for presenting the AI/ML and full-stack projects I have been building. The site is intentionally simple: a dark visual system, a focused Work section, concise About and Skills sections, and a small contact area.
+
+The portfolio is live at:
+
+https://prashantkumar01.vercel.app
+
+## What is inside
+
+The homepage is built around four main projects:
+
+- ArthaDrishti
+- FoodBridge
+- AI MarketGuard
+- RevenueRescue AI
+
+After those, the Work section includes a small “Explore more projects” area for two additional experiments:
+
+- Autonomous Self-Healing ML System
+- Decision Autopsy
+
+Each project has its own static detail page with the problem, approach, technical notes, stack, and GitHub link. The copy avoids fake metrics, fake demos, and claims that are not backed by the actual projects.
+
+## Tech stack
+
+- Next.js App Router
+- TypeScript
+- React
+- Tailwind CSS
+- Static project data stored in TypeScript files
+- Next.js metadata, sitemap, robots, icon, and Open Graph image support
+
+There is no backend in this repository. The site is a static portfolio deployed on Vercel.
+
+## Project structure
+
+```text
+app/                         Next.js routes, metadata, sitemap, robots, global CSS
+app/projects/[slug]/page.tsx Static project detail pages
+components/                  Shared layout and UI components
+components/sections/         Homepage sections
+components/projects/         Project visual components
+data/                        Profile, project, and skills content
+lib/                         Small site URL helper
+```
+
+The main content files are:
+
+- `data/profile.ts` for public profile links and navigation
+- `data/projects.ts` for project copy, stack, repository links, and project-page content
+- `data/skills.ts` for grouped skills
+- `components/sections/featured-work.tsx` for the full Work section
+- `app/globals.css` for the visual system and responsive styles
 
 ## Run locally
 
-Use Node.js 20.9 or newer and npm.
+Use Node.js 20.9 or newer.
 
 ```powershell
-git clone https://github.com/prashantkr102004-ui/portfolio.git
-cd portfolio
 npm ci
+npm run dev
+```
+
+Then open:
+
+```text
+http://localhost:3000
+```
+
+If port 3000 is already in use, run:
+
+```powershell
 npm run dev -- --port 3100
 ```
 
-Open http://localhost:3100. Port 3100 avoids a local restriction encountered on port 3000. You can choose a different free port with `--port`.
-
-## Validate and run production
+## Checks before pushing
 
 ```powershell
 npm run lint
 npm run typecheck
 npm run build
-npm run start -- --port 3100
 ```
 
-## Deploy to Vercel
+I use these before pushing changes so the Vercel deployment has the same result as the local production build.
 
-1. Push this project to a GitHub repository.
-2. In Vercel, choose **Add New → Project**, import that repository, and keep the detected **Next.js** framework settings.
-3. Optionally set `SITE_URL` to your final HTTPS origin if using a custom domain. Otherwise the app uses Vercel's `VERCEL_PROJECT_PRODUCTION_URL` environment variable.
-4. Deploy. Subsequent pushes to the production branch trigger new builds.
+## Deployment
 
-Alternatively, run `npx vercel` from this directory to create a preview, then `npx vercel --prod` for production.
+The project is connected to Vercel. Pushing to `main` triggers a production deployment.
 
-The sitemap and canonicals use the configured public origin. Without a deployment origin, the local sitemap is empty and canonicals are omitted; social images use a local development origin. Set the origin **before building**, then rebuild when changing domains. No credentials are needed by this portfolio.
+The public site URL is:
 
-Official guide: https://vercel.com/docs/frameworks/full-stack/nextjs
+```text
+https://prashantkumar01.vercel.app
+```
 
-## Content and structure
+If the production domain changes, set `SITE_URL` to the final HTTPS origin before building so sitemap and canonical metadata use the right URL.
 
-- `data/profile.ts`: public identity, contact links, and navigation.
-- `data/projects.ts`: project copy, engineering notes, technologies, and repository links.
-- `data/skills.ts`, `data/experience.ts`, `data/activities.ts`: structured supporting content.
-- `components/sections/`: home-page sections.
-- `components/projects/`: code-native conceptual architecture diagrams.
-- `components/ui/command-palette.tsx`: searchable keyboard navigation.
-- `app/projects/[slug]/page.tsx`: six statically generated case studies.
-- `app/globals.css`: responsive visual system, focus states, and motion preferences.
-- `app/opengraph-image.tsx`: a locally generated social preview using Next.js ImageResponse.
+## Notes
 
-## Interaction and accessibility
-
-Press `/` or `Ctrl/Cmd + K` to open quick navigation. Search project names, categories, or technologies; use the arrow keys and Enter to choose a result. Escape closes the native modal and restores focus. The slash shortcut does not intercept typing in editable fields.
-
-The site includes a skip link, semantic landmarks, mobile navigation, visible keyboard focus, native dialog focus containment, and reduced-motion support. Architecture diagrams are labeled conceptual; the market chart is explicitly illustrative. System fonts and code-native visuals avoid external font or image requests. Interactive JavaScript is confined to navigation and the command palette.
-
-Project facts come from the supplied brief. Repository links are provided directly; no deployed demos or usage metrics are assumed. Only the provided email, GitHub, and LinkedIn contacts are published.
+This site is deliberately lightweight. It does not use external images, animation libraries, analytics, or a CMS. Most of the site is server-rendered static content, with a small client-side navigation script used to highlight the active section while scrolling.
