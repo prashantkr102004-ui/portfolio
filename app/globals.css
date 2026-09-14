@@ -142,9 +142,11 @@ ul { padding: 0; list-style: none; }
   transition: transform 180ms ease;
 }
 .main-nav a:hover,
+.main-nav a[aria-current="location"],
 .nav-github:hover,
 .command-trigger:hover { color: var(--text); }
-.main-nav a:hover::after { transform: scaleX(1); }
+.main-nav a:hover::after,
+.main-nav a[aria-current="location"]::after { transform: scaleX(1); }
 .nav-actions {
   display: flex;
   align-items: center;
@@ -1307,6 +1309,9 @@ kbd {
     padding: 13px 0;
     color: var(--text-soft);
     font-size: 17px;
+  }
+  .main-nav a[aria-current="location"] {
+    color: var(--accent);
   }
   .main-nav a::after { display: none; }
   .menu-button { display: inline-flex; }
