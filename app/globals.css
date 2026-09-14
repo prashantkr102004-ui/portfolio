@@ -889,18 +889,34 @@ kbd {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid var(--line);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 999px;
-  color: var(--text-soft);
-  background: rgba(255, 255, 255, 0.015);
+  color: #fffaf0;
+  background: rgba(209, 167, 95, 0.18);
   transition: border-color 180ms ease, color 180ms ease, background 180ms ease, transform 180ms ease;
 }
+.contact-icon-link[data-tone="email"] {
+  border-color: rgba(209, 167, 95, 0.52);
+  background: rgba(209, 167, 95, 0.2);
+  color: #f3c66f;
+}
+.contact-icon-link[data-tone="linkedin"] {
+  border-color: rgba(88, 166, 255, 0.46);
+  background: rgba(10, 102, 194, 0.18);
+  color: #75bfff;
+}
+.contact-icon-link[data-tone="github"] {
+  border-color: rgba(240, 246, 252, 0.28);
+  background: rgba(240, 246, 252, 0.11);
+  color: #f0f6fc;
+}
 .contact-icon-link:hover {
-  border-color: rgba(209, 167, 95, 0.5);
-  background: var(--accent-soft);
-  color: var(--accent);
+  border-color: currentColor;
   transform: translateY(-2px);
 }
+.contact-icon-link[data-tone="email"]:hover { background: rgba(209, 167, 95, 0.3); }
+.contact-icon-link[data-tone="linkedin"]:hover { background: rgba(10, 102, 194, 0.28); }
+.contact-icon-link[data-tone="github"]:hover { background: rgba(240, 246, 252, 0.18); }
 .contact-icon-link svg {
   width: 21px;
   height: 21px;

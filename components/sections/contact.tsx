@@ -5,6 +5,7 @@ const contactLinks = [
   {
     label: "Email Prashant Kumar",
     href: `mailto:${profile.email}`,
+    tone: "email",
     icon: (
       <svg viewBox="0 0 24 24" aria-hidden="true">
         <path d="M4.75 6.75h14.5v10.5H4.75z" />
@@ -15,6 +16,7 @@ const contactLinks = [
   {
     label: "Prashant Kumar on LinkedIn",
     href: profile.linkedin,
+    tone: "linkedin",
     icon: (
       <svg viewBox="0 0 24 24" aria-hidden="true">
         <path d="M6.5 10.25v7.25" />
@@ -27,6 +29,7 @@ const contactLinks = [
   {
     label: "Prashant Kumar on GitHub",
     href: profile.github,
+    tone: "github",
     icon: (
       <svg viewBox="0 0 24 24" aria-hidden="true">
         <path d="M9.25 19.25c-4 1.25-4-2-5.5-2.5" />
@@ -37,5 +40,5 @@ const contactLinks = [
 ];
 
 export function Contact() {
-  return <section id="contact" className="contact-section" aria-labelledby="contact-title"><div className="contact-inner"><span className="eyebrow mono">05 / Contact</span><div className="contact-heading"><h2 id="contact-title">Have an interesting problem to build?</h2><a className="contact-arrow" href={`mailto:${profile.email}`} aria-label="Email Prashant Kumar"><Arrow diagonal /></a></div><p className="contact-copy">I am most interested in AI/ML products, data-heavy interfaces, full-stack systems, and practical software that has to work beyond the demo.</p><div className="contact-bottom"><div className="contact-links" aria-label="Contact links">{contactLinks.map(link => <a className="contact-icon-link" href={link.href} key={link.label} aria-label={link.label} target={link.href.startsWith("http") ? "_blank" : undefined} rel={link.href.startsWith("http") ? "noreferrer" : undefined}>{link.icon}</a>)}</div></div></div></section>;
+  return <section id="contact" className="contact-section" aria-labelledby="contact-title"><div className="contact-inner"><span className="eyebrow mono">05 / Contact</span><div className="contact-heading"><h2 id="contact-title">Have an interesting problem to build?</h2><a className="contact-arrow" href={`mailto:${profile.email}`} aria-label="Email Prashant Kumar"><Arrow diagonal /></a></div><p className="contact-copy">I am most interested in AI/ML products, data-heavy interfaces, full-stack systems, and practical software that has to work beyond the demo.</p><div className="contact-bottom"><div className="contact-links" aria-label="Contact links">{contactLinks.map(link => <a className="contact-icon-link" data-tone={link.tone} href={link.href} key={link.label} aria-label={link.label} target={link.href.startsWith("http") ? "_blank" : undefined} rel={link.href.startsWith("http") ? "noreferrer" : undefined}>{link.icon}</a>)}</div></div></div></section>;
 }
