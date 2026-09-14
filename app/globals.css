@@ -786,14 +786,12 @@ ul { padding: 0; list-style: none; }
 
 .more-work {
   margin-top: 42px;
-  padding: 40px 0 12px;
-  border-top: 1px solid var(--line);
-}
-.more-work > div:first-child {
   display: grid;
-  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
-  gap: 76px;
-  margin-bottom: 8px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 32px;
+  align-items: center;
+  padding: 40px 0 0;
+  border-top: 1px solid var(--line);
 }
 .more-work h3 {
   max-width: 620px;
@@ -801,37 +799,29 @@ ul { padding: 0; list-style: none; }
   font-size: 32px;
   line-height: 1.18;
 }
-.more-work-list { display: grid; }
-.more-work-item {
-  display: grid;
-  grid-template-columns: 54px minmax(0, 1fr) auto;
-  gap: 24px;
-  padding: 34px 0;
-  border-top: 1px solid var(--line);
-}
-.more-work-number { color: var(--accent); padding-top: 5px; }
-.more-work-item .eyebrow { color: var(--muted-2); margin-bottom: 12px; }
-.more-work-item h4 {
-  font-size: 28px;
-  line-height: 1.2;
-  overflow-wrap: anywhere;
-}
-.more-work-item h4 a {
+.more-work-button {
+  min-height: 66px;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 12px;
-}
-.more-work-item h4 .arrow { color: var(--accent); }
-.more-work-item p {
-  max-width: 720px;
-  margin-top: 14px;
-  color: var(--muted);
-  line-height: 1.78;
-}
-.more-work-item .tech-list { margin-top: 18px; }
-.more-work-item > .repository-link {
-  align-self: center;
+  border: 1px solid rgba(209, 167, 95, 0.55);
+  border-radius: 10px;
+  background: rgba(209, 167, 95, 0.12);
+  color: var(--text);
+  padding: 18px 24px;
+  font-size: 16px;
+  font-weight: 700;
   white-space: nowrap;
+  transition: border-color 180ms ease, background 180ms ease, transform 180ms ease;
+}
+.more-work-button:hover {
+  border-color: var(--accent);
+  background: rgba(209, 167, 95, 0.2);
+  transform: translateY(-2px);
+}
+.more-work-button:hover .arrow {
+  transform: translate(2px, -2px);
 }
 .contact-section {
   border-top: 1px solid var(--line);
@@ -1165,15 +1155,11 @@ ul { padding: 0; list-style: none; }
     gap: 12px;
   }
   .skill-row ul { grid-column: 2; }
-  .more-work > div:first-child {
+  .more-work {
     grid-template-columns: 1fr;
-    gap: 18px;
+    gap: 22px;
   }
-  .more-work-item {
-    grid-template-columns: 40px minmax(0, 1fr);
-  }
-  .more-work-item > .repository-link {
-    grid-column: 2;
+  .more-work-button {
     justify-self: start;
   }
   .contact-heading { grid-template-columns: 1fr; }
@@ -1302,12 +1288,11 @@ ul { padding: 0; list-style: none; }
     padding: 22px 0;
   }
   .skill-row h3 { font-size: 17px; }
-  .more-work-item {
-    grid-template-columns: 30px minmax(0, 1fr);
-    gap: 14px;
-  }
   .more-work h3 { font-size: 25px; }
-  .more-work-item h4 { font-size: 24px; }
+  .more-work-button {
+    width: 100%;
+    min-height: 62px;
+  }
   .contact-inner { padding: 58px 0 34px; }
   .contact-links {
     flex-wrap: wrap;
