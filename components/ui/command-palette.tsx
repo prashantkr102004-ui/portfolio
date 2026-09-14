@@ -6,7 +6,7 @@ import { profile } from "@/data/profile";
 import { Arrow } from "./arrow";
 
 const commands = [
-  ...projects.map(project => ({ label: project.name, category: "Project", href: `/projects/${project.id}`, keywords: `${project.category} ${project.stack.join(" ")}` })),
+  ...projects.map(project => ({ label: project.name, category: "Project", href: `/projects/${project.id}`, keywords: `${project.category} ${project.subtitle} ${project.stack.join(" ")} ${project.id === "self-healing-ml" ? "Self-Healing ML" : ""}` })),
   ...["About", "Experience", "Skills", "Contact"].map(label => ({ label, category: "Section", href: `/#${label.toLowerCase()}`, keywords: "" })),
   { label: "GitHub", category: "Link", href: profile.github, keywords: "code repositories" },
   { label: "LinkedIn", category: "Link", href: profile.linkedin, keywords: "connect" },
@@ -38,16 +38,15 @@ export function CommandPalette() {
   }, []);
   useEffect(() => { document.getElementById(`command-${selected}`)?.scrollIntoView({ block: "nearest" }); }, [selected]);
   return <>
-    <button ref={trigger} className="command-trigger" onClick={open} aria-label="Open command palette" title="Quick navigation (Ctrl or Command + K)"><span>Quick find</span><kbd>⌘ K</kbd></button>
+    <button ref={trigger} className="command-trigger" onClick={open} aria-label="Open command palette" title="Open command palette"><span>Command</span></button>
     <dialog ref={dialog} className="command-dialog" aria-labelledby="command-title" onClose={() => trigger.current?.focus()} onClick={event => { if (event.target === dialog.current) close(); }} onKeyDown={event => {
       if (event.key === "ArrowDown") { event.preventDefault(); setSelected(value => results.length ? (value + 1) % results.length : 0); }
       if (event.key === "ArrowUp") { event.preventDefault(); setSelected(value => results.length ? (value - 1 + results.length) % results.length : 0); }
       if (event.key === "Enter" && event.target === input.current && results[selected]) { event.preventDefault(); activate(results[selected].href); }
     }}>
-      <div className="command-top"><label id="command-title" htmlFor="command-search">Go somewhere interesting</label><button onClick={close} aria-label="Close command palette">Esc</button></div>
-      <input ref={input} id="command-search" role="combobox" aria-autocomplete="list" aria-expanded="true" aria-controls="command-results" aria-activedescendant={results[selected] ? `command-${selected}` : undefined} placeholder="Search projects, skills, links…" value={query} onChange={event => { setQuery(event.target.value); setSelected(0); }} autoComplete="off" />
-      <div id="command-results" role="listbox" aria-label="Navigation results" className="command-results">{results.map((item, index) => <div key={item.href} role="option" id={`command-${index}`} aria-selected={index === selected} className={index === selected ? "command-result selected" : "command-result"} onMouseMove={() => setSelected(index)} onClick={() => activate(item.href)}><span><small>{item.category}</small>{item.label}</span><Arrow diagonal /></div>)}{results.length === 0 && <p className="empty-results" role="status">No matches. Try “finance”, “React”, or “About”.</p>}</div>
-      <div className="command-bottom"><span>↑ ↓ to navigate</span><span>↵ to open</span></div>
+      <div className="command-top"><label id="command-title" htmlFor="command-search">Search portfolio</label><button onClick={close} aria-label="Close command palette">Close</button></div>
+      <input ref={input} id="command-search" role="combobox" aria-autocomplete="list" aria-expanded="true" aria-controls="command-results" aria-activedescendant={results[selected] ? `command-${selected}` : undefined} placeholder="Projects, sections, links..." value={query} onChange={event => { setQuery(event.target.value); setSelected(0); }} autoComplete="off" />
+      <div id="command-results" role="listbox" aria-label="Navigation results" className="command-results">{results.map((item, index) => <div key={item.href} role="option" id={`command-${index}`} aria-selected={index === selected} className={index === selected ? "command-result selected" : "command-result"} onMouseMove={() => setSelected(index)} onClick={() => activate(item.href)}><span><small>{item.category}</small>{item.label}</span><Arrow diagonal /></div>)}{results.length === 0 && <p className="empty-results" role="status">No matches. Try finance, React, or About.</p>}</div>
     </dialog>
   </>;
 }
