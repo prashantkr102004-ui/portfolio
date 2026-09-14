@@ -7,7 +7,7 @@ import { Arrow } from "./arrow";
 
 const commands = [
   ...projects.map(project => ({ label: project.name, category: "Project", href: `/projects/${project.id}`, keywords: `${project.category} ${project.subtitle} ${project.stack.join(" ")} ${project.id === "self-healing-ml" ? "Self-Healing ML" : ""}` })),
-  ...["About", "Experience", "Skills", "Contact"].map(label => ({ label, category: "Section", href: `/#${label.toLowerCase()}`, keywords: "" })),
+  ...["About", "Skills", "Contact"].map(label => ({ label, category: "Section", href: `/#${label.toLowerCase()}`, keywords: "" })),
   { label: "GitHub", category: "Link", href: profile.github, keywords: "code repositories" },
   { label: "LinkedIn", category: "Link", href: profile.linkedin, keywords: "connect" },
   { label: "Email", category: "Link", href: `mailto:${profile.email}`, keywords: "contact" },
