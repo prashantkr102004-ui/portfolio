@@ -8,7 +8,7 @@ https://prashantkumar01.vercel.app
 
 ## What is inside
 
-The homepage is built around a more interactive, editorial presentation of four main projects:
+The homepage is built around four main projects:
 
 - ArthaDrishti
 - FoodBridge
@@ -17,7 +17,7 @@ The homepage is built around a more interactive, editorial presentation of four 
 
 After those, the Work section has a larger “Explore more projects” button that takes visitors directly to my GitHub profile.
 
-Each featured project has its own static detail page with the problem, approach, technical notes, stack, and GitHub link. The homepage also includes a keyboard command palette, restrained hero motion, interactive project rows, static mobile project visuals, and a contact ending built around the same dark editorial system. The copy avoids fake metrics, fake demos, and claims that are not backed by the actual projects.
+Each featured project has its own static detail page with the problem, approach, technical notes, stack, and GitHub link. The copy avoids fake metrics, fake demos, and claims that are not backed by the actual projects.
 
 ## Tech stack
 
@@ -95,4 +95,4 @@ If the production domain changes, set `SITE_URL` to the final HTTPS origin befor
 
 ## Notes
 
-This site is deliberately lightweight. It does not use external images, large animation libraries, analytics, or a CMS. Most of the site is server-rendered static content, with small client-side scripts for active navigation, the command palette, and restrained pointer interactions.
+This site is deliberately lightweight. It does not use external images, animation libraries, analytics, or a CMS. Most of the site is server-rendered static content, with a small client-side navigation script used to highlight the active section while scrolling.
