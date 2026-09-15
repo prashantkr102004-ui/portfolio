@@ -1,5 +1,5 @@
-import { profile } from "@/data/profile";
 import { Arrow } from "@/components/ui/arrow";
+import { profile } from "@/data/profile";
 
 const contactLinks = [
   {
@@ -40,5 +40,42 @@ const contactLinks = [
 ];
 
 export function Contact() {
-  return <section id="contact" className="contact-section" aria-labelledby="contact-title"><div className="contact-inner"><span className="eyebrow mono">04 / Contact</span><div className="contact-heading"><h2 id="contact-title">Have an interesting problem to build?</h2><a className="contact-arrow" href={`mailto:${profile.email}`} aria-label="Email Prashant Kumar"><Arrow diagonal /></a></div><p className="contact-copy">I am most interested in AI/ML products, data-heavy interfaces, full-stack systems, and practical software that has to work beyond the demo.</p><div className="contact-bottom"><div className="contact-links" aria-label="Contact links">{contactLinks.map(link => <a className="contact-icon-link" data-tone={link.tone} href={link.href} key={link.label} aria-label={link.label} target={link.href.startsWith("http") ? "_blank" : undefined} rel={link.href.startsWith("http") ? "noreferrer" : undefined}>{link.icon}</a>)}</div></div></div></section>;
+  return (
+    <section id="contact" className="contact-section" aria-labelledby="contact-title">
+      <div className="contact-inner">
+        <span className="eyebrow mono">04 / Contact</span>
+        <div className="contact-heading">
+          <h2 id="contact-title">Have an interesting problem to build?</h2>
+          <a className="contact-arrow" href={`mailto:${profile.email}`} aria-label="Email Prashant Kumar">
+            <Arrow diagonal />
+          </a>
+        </div>
+        <p className="contact-copy">
+          I am most interested in AI/ML products, data-heavy interfaces, full-stack systems, and practical software that
+          has to work beyond the demo.
+        </p>
+        <div className="contact-bottom">
+          <div className="contact-links" aria-label="Contact links">
+            {contactLinks.map((link) => {
+              const isExternal = link.href.startsWith("http");
+
+              return (
+                <a
+                  className="contact-icon-link"
+                  data-tone={link.tone}
+                  href={link.href}
+                  key={link.label}
+                  aria-label={link.label}
+                  target={isExternal ? "_blank" : undefined}
+                  rel={isExternal ? "noreferrer" : undefined}
+                >
+                  {link.icon}
+                </a>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 }

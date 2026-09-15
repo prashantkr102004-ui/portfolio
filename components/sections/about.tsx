@@ -1,3 +1,25 @@
 export function About() {
-  return <section id="about" className="about-section" aria-labelledby="about-title"><div><span className="eyebrow mono">02 / About</span><h2 id="about-title">I build around the model, not just with it.</h2></div><div className="about-copy"><p className="large-copy">I enjoy building systems where software, data, and intelligent models solve practical problems.</p><p>My projects range from personal financial intelligence and food redistribution to stock-market analysis, AI decision tools, and adaptive machine-learning infrastructure.</p><p>I am especially interested in understanding both the model and the system around it: APIs, databases, interfaces, reliability, and the actual user problem the technology is supposed to solve.</p><div className="about-note"><span className="mono">Working style</span><strong>Start with the workflow. Make the data trustworthy. Keep the interface calm.</strong></div></div></section>;
+  return (
+    <section id="about" className="about-section" aria-labelledby="about-title">
+      <div>
+        <span className="eyebrow mono">02 / About</span>
+        <h2 id="about-title">I build around the model, not just with it.</h2>
+      </div>
+      <div className="about-copy">
+        <p className="large-copy">I enjoy building systems where software, data, and intelligent models solve practical problems.</p>
+        <p>
+          My projects focus on personal financial intelligence, food redistribution, market analysis, and payment recovery
+          workflows.
+        </p>
+        <p>
+          I am especially interested in understanding both the model and the system around it: APIs, databases,
+          interfaces, reliability, and the actual user problem the technology is supposed to solve.
+        </p>
+        <div className="about-note">
+          <span className="mono">Working style</span>
+          <strong>Start with the workflow. Make the data trustworthy. Keep the interface calm.</strong>
+        </div>
+      </div>
+    </section>
+  );
 }
